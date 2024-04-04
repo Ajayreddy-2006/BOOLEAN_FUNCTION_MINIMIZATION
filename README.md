@@ -33,36 +33,46 @@ Hardware – PCs, Cyclone II , USB flasher
 
 **Program:**
 
-/* Program to implement the given logic function and to verify its operations in quartus using Verilog programming. 
-
-Developed by: NANDYALA MALYADRI REDDY
-RegisterNumber: 212223100037
-
-**program**
-
+##### Program to implement the given logic function and to verify its operations in quartus using Verilog programming. 
+#### Developed by :T.Ajay
+#### RegisterNumber : 212223230007
 ```
-module combinationalcircuit(A,B,C,D,F1);
-input A,B,C,D;
-output F1;
-wire x1,x2,x3,x4,x5;
-assign x1=(~A)&(~B)&(~C)&(~D);
-assign x2=(A)&(~C)&(~D);
-assign x3=(~B)&(C)&(~D);
-assign x4=(~A)&(B)&(C)&(D);
-assign x5=(B)&(~C)&(D);
-assign F1=x1|x2|x3|x4|x5;
+module Booleanminimization(
+    input a, b, c, d, w, x, y, z,
+    output f1, f2
+);
+
+wire adash, bdash, cdash, ddash, ydash, zdash, wdash;
+not(adash, a);
+not(bdash, b);
+not(cdash, c);
+not(ddash, d);
+not(ydash, y);
+not(zdash, z);
+not(wdash, w);
+
+wire p, q, r, s, t, u, term1, term2, term3;
+
+and(p, bdash, ddash);
+and(q, adash, b, d);
+and(r, a, b, cdash);
+and(term1, ydash, z);
+and(term2, x, y);
+and(term3, w, y);
+
+or(f1, p, q, r);
+or(f2, term1, term2, term3);
+
 endmodule
 ```
 **RTL realization**
-![312535957-dbd64921-6857-40ee-a21b-55fa17e9f89b](https://github.com/keerthigasudhagar/BOOLEAN_FUNCTION_MINIMIZATION/assets/163229129/20c74833-19b9-4b3e-b48c-b11a1136280d)
+![image](https://github.com/Madhavareddy09/BOOLEAN_FUNCTION_MINIMIZATION/assets/145742470/9d76b4bf-ba7f-4602-8e40-28e9c110faf3)
 
-**Truth table**
-![312536822-849f41b1-394f-48f4-b451-88315b927f79](https://github.com/keerthigasudhagar/BOOLEAN_FUNCTION_MINIMIZATION/assets/163229129/d43706c9-ae4d-4974-8e6f-3763deb24a9b)
+**Output:**
+![image](https://github.com/Madhavareddy09/BOOLEAN_FUNCTION_MINIMIZATION/assets/145742470/0436ed26-0afb-4c1a-93e5-7112ebe5462f)
 
-
-**Timing Diagram**
-![312537126-533d1307-308c-4a6d-9495-b6f289bf8479](https://github.com/keerthigasudhagar/BOOLEAN_FUNCTION_MINIMIZATION/assets/163229129/7021421e-a601-455b-b518-5b5ea0886dc4)
-
+## Truth Table:
+![WhatsApp Image 2024-03-21 at 10 32 49_2730e433](https://github.com/saiganesh2006/BOOLEAN_FUNCTION_MINIMIZATION/assets/145742342/6531c9db-9ee9-4d21-b499-4ec401120053)
 
 **Result:**
 
